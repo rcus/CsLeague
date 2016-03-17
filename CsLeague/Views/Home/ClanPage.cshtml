@@ -1,0 +1,54 @@
+﻿@model IEnumerable < CsLeague.Models.Players >
+
+@{
+    ViewBag.Title = "ClanPage";
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Score)
+            </th>
+        </tr>
+    </thead>
+    <tbody id="tableBody">
+        @Html.Partial("_ClanData", Model)
+    </tbody>
+</table>
+
+
+<h3>Update Player Points</h3>
+
+<form action="" id="playerUpdate" class="form-inline">
+    <label for="playerId">Id</label>
+    <div class="form-group">
+        <input type="number" class="form-control" id="playerId">
+    </div>
+    <label for="playerPoints">Points</label>
+    <div class="form-group">
+        <input type="number" class="form-control" id="playerPoints">
+    </div>
+    <button type="button" id="playerButton" class="btn btn-default">Update</button>
+</form>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/clanpage")
+}

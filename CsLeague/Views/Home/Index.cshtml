@@ -1,0 +1,67 @@
+﻿@model IEnumerable < CsLeague.Models.Clans >
+
+@{
+    ViewBag.Title = "Keylinx Counter-Strike League";
+}
+
+<div class="jumbotron">
+    <h1>@ViewBag.Title</h1>
+    <p class="lead">This is the current scoreboard.</p>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Played)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Won)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Draw)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rounds)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Points)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(item.Name, "ClanPage", new { Id = item.Id })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Played)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Won)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Draw)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Lost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rounds)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Points)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
