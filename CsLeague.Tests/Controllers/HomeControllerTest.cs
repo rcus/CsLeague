@@ -6,16 +6,20 @@ using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CsLeague;
 using CsLeague.Controllers;
+using CsLeague.Models;
+using System.IO;
 
 namespace CsLeague.Tests.Controllers
 {
     [TestClass]
     public class HomeControllerTest
     {
+
         [TestMethod]
         public void Index()
         {
             // Arrange
+            AppDomain.CurrentDomain.SetData("DataDirectory", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, string.Empty));
             HomeController controller = new HomeController();
 
             // Act
